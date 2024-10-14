@@ -38,7 +38,7 @@ class MahasiswaController extends Controller
 
         Mahasiswa::create($request->all());
 
-        return redirect()->route('mahasiswa.index')
+        return redirect()->route('index')
                          ->with('success', 'Matkul created successfully.');
     }
 
@@ -70,7 +70,7 @@ class MahasiswaController extends Controller
 
         $mahasiswa->update($request->all());
 
-        return redirect()->route('matkul.index')
+        return redirect()->route('index')
                          ->with('success', 'Mahasiswa updated successfully.');
     }
 
@@ -81,7 +81,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswa->delete();
 
-        return redirect()->route('mahasiswa.index')
+        return redirect()->route('index')
                          ->with('success', 'Matkul deleted successfully.');
     }
 }

@@ -45,14 +45,14 @@ class PerkuliahanController extends Controller
         ]);
 
         // Menyimpan data perkuliahan
-        DB::table('perkuliah')->insert([
+        DB::table('perkuliahan')->insert([
             'id_mahasiswa' => $request->id_mahasiswa,
             'id_matkul' => $request->id_matkul,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('perkuliahan.index')->with('success', 'Data perkuliahan berhasil ditambahkan!');
+        return redirect()->route('index')->with('success', 'Data perkuliahan berhasil ditambahkan!');
     }
 
     /**

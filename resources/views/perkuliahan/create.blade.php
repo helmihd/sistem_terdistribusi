@@ -1,40 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Perkuliahan</title>
-</head>
-<body>
-    <h1>Tambah Perkuliahan</h1>
 
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
-    <form action="{{ route('perkuliahan.store') }}" method="POST">
-        @csrf
-        <label for="id_mahasiswa">Mahasiswa:</label>
-        <select name="id_mahasiswa" id="id_mahasiswa" required>
-            @foreach ($mahasiswas as $id => $name)
-                <option value="{{ $id }}">{{ $name }}</option>
-            @endforeach
-        </select>
 
-        <label for="id_matkul">Mata Kuliah:</label>
-        <select name="id_matkul" id="id_matkul" required>
-            @foreach ($matkuls as $id => $nama)
-                <option value="{{ $id }}">{{ $nama }}</option>
-            @endforeach
-        </select>
 
-        <button type="submit">Simpan</button>
-    </form>
-</body>
-</html>
+@extends('layout.master')
+@section('content')
+    <div class="sm:p-7 p-4">
+        <form action="{{ route('perkuliahan.store') }}" method="POST">
+            @csrf
+
+            <x-select
+                id="id_mahasiswa"
+                name="id_mahasiswa"
+                label="Mahasiswa:"
+                :options="$mahasiswas"
+            />
+
+            <x-select
+                id="id_matkul"
+                name="id_matkul"
+                label="Mata Kuliah:"
+                :options="$matkuls"
+            />
+
+            <button type="submit" class="mt-4 inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Simpan</button>
+        </form>
+    </div>
+@endsection
+
+

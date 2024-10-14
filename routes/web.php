@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PerkuliahanController;
@@ -16,9 +17,7 @@ use App\Http\Controllers\PerkuliahanController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
 
 Route::resource('matkul', MatkulController::class);

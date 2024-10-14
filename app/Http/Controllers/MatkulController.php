@@ -37,7 +37,7 @@ class MatkulController extends Controller
 
         Matkul::create($request->all());
 
-        return redirect()->route('matkul.index')
+        return redirect()->route('index')
                          ->with('success', 'Matkul created successfully.');
     }
 
@@ -69,7 +69,7 @@ class MatkulController extends Controller
 
         $matkul->update($request->all());
 
-        return redirect()->route('matkul.index')
+        return redirect()->route('index')
                          ->with('success', 'Matkul updated successfully.');
     }
 
@@ -80,7 +80,7 @@ class MatkulController extends Controller
     {
         $matkul->delete();
 
-        return redirect()->route('matkul.index')
+        return redirect()->route('index')
                          ->with('success', 'Matkul deleted successfully.');
     }
 }
